@@ -147,15 +147,17 @@ if os.getcwd() == '/app':
         'default': dj_database_url.config(default='postgres://localhost')
     }
 
-# Honra o cabeçalho 'X-Forwarded-Proto' para request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # Honra o cabeçalho 'X-Forwarded-Proto' para request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Cabeçalhos para permitir todos os hosts
-ALLOWED_HOSTS = ['*']
+    # Cabeçalhos para permitir todos os hosts
+    ALLOWED_HOSTS = ['learning-log-crn.herokuapp.com']
 
-# Configuração de recursos estáticos
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+    DEBUG = False
+
+    # Configuração de recursos estáticos
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
