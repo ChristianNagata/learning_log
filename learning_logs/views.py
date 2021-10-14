@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Topic
 from django.http import HttpResponseRedirect, Http404
 from .forms import TopicForm, EntryForm
@@ -23,7 +23,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """Mostra um único assunto e todas as suas entradas."""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
 
     # Garante que o assunto pertence ao usuário atual
     if topic.owner != request.user:
